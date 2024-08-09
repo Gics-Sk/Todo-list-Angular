@@ -10,26 +10,23 @@ import { TodoInterface } from '../todo-interface';
   templateUrl: './form.component.html',
   styleUrl: './form.component.css'
 })
-export class FormComponent implements OnInit {
+export class FormComponent {
   
-  tasks:TodoInterface[] = TASKS;
+  tasks:TodoInterface[] = [];
   constructor( private myService: FormService){
 
   }
   TaskForm = new FormGroup ({
- task:new FormControl
+ task:new FormControl  (" ")
   })
 onSubmit(){
-  console.log('bon')
-  
-this.tasks.push(this.TaskForm.value.task)
 
-  console.log(this.tasks)
+ this.myService.addTasks(this.TaskForm.value.task|| "");
+ console.log(this.myService.getTasks())
 }
   
   ngOnInit(): void {
-    this.tasks = this.myService.getTasks();
-
+  
     // this.myService.getTasks().subscribe( users =>{
     //   this.users=users;
 

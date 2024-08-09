@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TodoInterface } from './todo-interface';
-import { TASKS } from '../mock-tasks';
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,9 +8,31 @@ import { TASKS } from '../mock-tasks';
 export class FormService {
 
   constructor() { }
-task:TodoInterface[]=TASKS;
+tasks:TodoInterface[]=[
+  {
+    id:1,
+    task:"okkkkk",
+    statut:false
+  },
+  {
+    id:2,
+    task:"rrrrkkkk",
+    statut:false
+  },
+  {
+    id:3,
+    task:"ouuukkk",
+    statut:false
+  }
+];
+  nextId:number=1;
+  getTasks(){
+  return  this.tasks;
+  };
+  addTasks(task:string){
 
-  getTasks():TodoInterface[]{
-  return  this.task;
+   this.tasks.push({id:this.nextId++, task:task,statut:false});
+  
+   
   }
 }
