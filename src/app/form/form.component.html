@@ -1,1 +1,46 @@
-<p>form works!</p>
+<div class="container-lg">
+<form class="row g-3" (ngSubmit)="onSubmit()" [formGroup]="TaskForm">
+    
+    <div class="col-auto">
+    <label for="" class="form-label"> Ajouter une tâche </label>
+
+        <input  class="form-control form-control-lg" type="text" formControlName="task" aria-label=".form-control-lg example">
+       <br> <br>
+        <button type="submit" class="btn btn-primary mb-3" >Ajouter</button>
+    </div>
+  </form>
+
+</div>
+
+<p> la tâche est : {{TaskForm.value.task}}</p>
+
+
+<div>
+
+    <table>
+        <thead>
+            <th>id</th>
+            <th>tâche</th>
+            
+        </thead>
+        <tbody>
+       
+            
+    
+    
+          <tr *ngFor="let task of tasks; let i=index" >
+            <td>{{i+1}}</td>
+            <td>{{task.task}}</td>
+            
+          </tr>
+       
+       
+       
+     </tbody> 
+    </table>
+
+
+
+    
+    
+</div>
