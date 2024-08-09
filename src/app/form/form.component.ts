@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { FormService } from '../form.service';
-import { TASKS } from '../../mock-tasks';
-import { TodoInterface } from '../todo-interface';
-
+import { Interfacetodo } from '../interfacetodo';
+import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'app-form',
@@ -11,32 +9,15 @@ import { TodoInterface } from '../todo-interface';
   styleUrl: './form.component.css'
 })
 export class FormComponent {
-  
-  tasks:TodoInterface[] = [];
-  constructor( private myService: FormService){
 
-  }
-  TaskForm = new FormGroup ({
- task:new FormControl  (" ")
+
+  InputForm = new FormGroup({
+    task:new FormControl("")
   })
-onSubmit(){
+  constructor(private todoService: TodoService){}
 
- this.myService.addTasks(this.TaskForm.value.task|| "");
- console.log(this.myService.getTasks())
- console.log(this.tasks)
-
- this.myService.totalTasks();
- console.log( this.myService.totalTasks())
-}
-  
-  ngOnInit(): void {
-  
-    // this.myService.getTasks().subscribe( users =>{
-    //   this.users=users;
-
-    // this.TaskForm.value.task = this.tasks;
-
-    console.log(this.tasks)
-
+  addTodos(){
+   this.todoService.addTodos(this.InputForm.value.task || " ")
   }
+
 }
