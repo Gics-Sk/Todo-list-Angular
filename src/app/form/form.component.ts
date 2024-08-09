@@ -23,6 +23,10 @@ onSubmit(){
 
  this.myService.addTasks(this.TaskForm.value.task|| "");
  console.log(this.myService.getTasks())
+ console.log(this.tasks)
+
+ this.myService.totalTasks();
+ console.log( this.myService.totalTasks())
 }
   
   ngOnInit(): void {

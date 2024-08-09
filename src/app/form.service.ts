@@ -34,5 +34,12 @@ tasks:TodoInterface[]=[
    this.tasks.push({id:this.nextId++, task:task,statut:false});
   
    
+  };
+
+  sum:number=0;
+  totalTasks(){
+    this.sum =this.nextId;
+ 
+
   }
 }
