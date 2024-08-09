@@ -17,7 +17,10 @@ export class FormComponent {
   constructor(private todoService: TodoService){}
 
   addTodos(){
-   this.todoService.addTodos(this.InputForm.value.task || " ")
-  }
+   this.todoService.addTodos(this.InputForm.value.task || " ");
+   this.todoService.totalTodos();
+   this.InputForm.reset();
+
+}
 
 }

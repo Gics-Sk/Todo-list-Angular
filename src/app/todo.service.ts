@@ -8,6 +8,7 @@ import {TODOS} from './mock-todos'
 export class TodoService {
 todos: Interfacetodo[]=[
 ];
+donenumber:number=0;
 nextId:number=1;
   constructor() { }
   // Méthode de stockage des données
@@ -28,4 +29,16 @@ nextId:number=1;
       todo.statut = !todo.statut;
     }
   }
+  sum:number=0;
+  totalTodos(){
+     const total:number=this.sum++;
+  }
+
+  showdone():number{
+    const todo = this.todos.find(todo=>todo.statut ===true);
+    if(todo){
+      for (let i=1 ; i<todos.length;i++)
+    }
+    return this.donenumber=this.todos.length;
+   }
 }

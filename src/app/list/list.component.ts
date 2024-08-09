@@ -10,7 +10,9 @@ import { TodoService } from '../todo.service';
 export class ListComponent {
   [x: string]: any;
   todos?: Interfacetodo[];
+  donenumber:number=0;
   constructor(private todosService: TodoService) {}
+  
   ngOnInit(): void {
     this.todos = this.todosService.getTodos();
   }
@@ -21,4 +23,21 @@ export class ListComponent {
   toogleTaskCompletion(index: number) {
     this.todosService.toogleTaskCompletion(index);
   }
+  total(){
+   
+    return this.todos?.length ;
+    console.log( this.todos?.length )
+   }
+
+  // showdone():number{
+  //   this.todos= this.todosService.getTodos().filter((t)=> t.statut===true);
+  //   return this.donenumber=this.todos.length;
+  //  }
+
+  // showDone(){
+  //  return this.todosService.showdone();
+  //  console.log("non")
+  // }
 }
+
+
