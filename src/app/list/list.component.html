@@ -1,0 +1,23 @@
+
+<div class="card px-5 mx-5 py-5 my-5 shadow border-none">
+  <table class="table table-responsive">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ID</th>
+        <th scope="col">Nom de la tâche</th>
+        <th scope="col">Statut</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let todo of todos; let i=index">
+        <th scope="row"><input type="checkbox" /></th>
+        <td>{{i + 1}}</td>
+        <td>{{todo.task}}</td>
+        <td>{{!todo.statut?'Non traité':'Traité'}}</td>
+        <td><button type="button" (click)="deleteTodo(i)" class="btn btn-danger">Supprimer</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
