@@ -8,8 +8,9 @@ import { TodoService } from '../todo.service';
   styleUrl: './list.component.css',
 })
 export class ListComponent {
-  [x: string]: any;
+  
   todos?: Interfacetodo[];
+  selectedTodo: Interfacetodo | null = null;
   constructor(private todosService: TodoService) {}
   ngOnInit(): void {
     this.todos = this.todosService.getTodos();
@@ -20,5 +21,10 @@ export class ListComponent {
   }
   toogleTaskCompletion(index: number) {
     this.todosService.toogleTaskCompletion(index);
+  }
+  selectTodo(todo:Interfacetodo){
+    this.selectedTodo = {...todo};
+    console.log({...todo}.task);
+    
   }
 }

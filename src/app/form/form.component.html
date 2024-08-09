@@ -1,9 +1,11 @@
  <h1 class="text-center text-danger">Todo List en Angular</h1>
-<form class=" mx-5 my-3 row text" [formGroup]="InputForm" (ngSubmit)="addTodos()">
+<form class=" mx-5 my-3 row text" [formGroup]="InputForm" >
                <div class="col-sm-10 d-flex align-item-center ">
                  <input type="text" class="form-control form-control-lg" id="task" name="task"  placeholder="Votre tâche" formControlName="task">
-                 <button type="submit" class="btn btn-primary mx-5">Ajouter</button>
+                 <button type="submit" class="btn btn-primary mx-5"(click)="addTodos()">{{ selectedTodo ? 'Mettre à jour' : 'Ajouter' }}</button>
+                
+                 
                 </div>
              </form>
 
-           
+          

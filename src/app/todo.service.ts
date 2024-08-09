@@ -17,7 +17,14 @@ nextId:number=1;
  addTodos(task:string){
   this.todos.push({id:this.nextId++,task:task, statut:false});
  }
- 
+//  updateTodos(index:number, newTask:string){
+//   const todo = this.todos.find(todo => todo.id ===index);
+//   if (todo) {
+//     todo.task = newTask;
+//   }
+//   console.log(todo);
+  
+//  }
 
   deleteTodos(index:number){
    this.todos.splice(index,1)

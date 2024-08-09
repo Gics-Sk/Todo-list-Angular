@@ -16,7 +16,7 @@
         <td>{{i + 1}}</td>
         <td [class.completed]="todo.statut">{{todo.task}}</td>
         <td>{{!todo.statut?'Non traité':'Traité'}}</td>
-        <td><button class="btn btn-warning mx-2">Modifier</button><button type="button" (click)="deleteTodo(i)" class="btn btn-danger">Supprimer</button></td>
+        <td><button class="btn btn-warning mx-2" (click)="selectTodo(todo)">Modifier</button><button type="button" (click)="deleteTodo(i)" class="btn btn-danger">Supprimer</button></td>
       </tr>
     </tbody>
   </table>
