@@ -5,16 +5,20 @@ import { TodoService } from '../todo.service';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrl: './list.component.css'
+  styleUrl: './list.component.css',
 })
 export class ListComponent {
-todos?:Interfacetodo[];
-constructor(private todosService: TodoService){}
-ngOnInit():void {
-  this.todos = this.todosService.getTodos()
+  [x: string]: any;
+  todos?: Interfacetodo[];
+  constructor(private todosService: TodoService) {}
+  ngOnInit(): void {
+    this.todos = this.todosService.getTodos();
   }
-deleteTodo(index:number){
-  this.todosService.deleteTodos(index)
-}
-
+ 
+  deleteTodo(index: number) {
+    this.todosService.deleteTodos(index);
+  }
+  toogleTaskCompletion(index: number) {
+    this.todosService.toogleTaskCompletion(index);
+  }
 }
